@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="websocketCase:war exploded">
+  <artifact type="exploded-war" name="springwebsocket:war exploded">
     <output-path>$PROJECT_DIR$/target/websocketCase</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

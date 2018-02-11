@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springwebsocket" />
         <module name="websocketCase" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="springwebsocket" target="1.5" />
       <module name="websocketCase" target="1.5" />
     </bytecodeTargetLevel>
   </component>

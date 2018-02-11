@@ -30,13 +30,23 @@ public class WebSocketAction {
         return new WebsocketHandler();
     }
 
-    @RequestMapping("/websocket/login")
-    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @RequestMapping("/websocket/loginview")
+    public ModelAndView loginview(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String username = request.getParameter("username");
         System.out.println(username + "登录");
         HttpSession session = request.getSession(false);
         session.setAttribute("SESSION_USERNAME", username);
         return new ModelAndView("send");
+    }
+
+    @RequestMapping("/websocket/login")
+    @ResponseBody
+    public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String username = request.getParameter("username");
+        System.out.println(username + "登录");
+        HttpSession session = request.getSession(false);
+        session.setAttribute("SESSION_USERNAME", username);
+        return "登录成功！";
     }
 
     @RequestMapping("/websocket/send")

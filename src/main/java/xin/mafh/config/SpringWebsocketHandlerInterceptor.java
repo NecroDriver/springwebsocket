@@ -13,19 +13,17 @@ import org.springframework.web.socket.server.support.HttpSessionHandshakeInterce
 
 
 /**
- * 
  * SpringWebsocketHandlerInterceptor websocket拦截器
- * 
+ *
  * @author creator mafh 2018年2月11日 上午10:31:27
  * @author updater
- *
  * @version 1.0.0
  */
 public class SpringWebsocketHandlerInterceptor extends HttpSessionHandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
-                    Map<String, Object> map) throws Exception {
+                                   Map<String, Object> map) throws Exception {
         if (request instanceof ServerHttpRequest) {
             ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
             HttpSession session = servletRequest.getServletRequest().getSession(false);
@@ -36,6 +34,7 @@ public class SpringWebsocketHandlerInterceptor extends HttpSessionHandshakeInter
                     userName = "default-system";
                 }
                 map.put("WEBSOCKET_USERNAME", userName);
+                System.out.println(userName);
             }
         }
         return super.beforeHandshake(request, response, wsHandler, map);
@@ -43,7 +42,7 @@ public class SpringWebsocketHandlerInterceptor extends HttpSessionHandshakeInter
 
     @Override
     public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
-                    Exception ex) {
+                               Exception ex) {
         // TODO Auto-generated method stub
         super.afterHandshake(request, response, wsHandler, ex);
     }
